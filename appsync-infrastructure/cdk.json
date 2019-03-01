@@ -1,0 +1,3 @@
+{
+  "app": "node bin/dlounge-appsync-infrastructure.js"
+}

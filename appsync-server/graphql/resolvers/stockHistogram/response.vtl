@@ -1,0 +1,11 @@
+#set($array = [])
+
+#foreach($entry in $context.result.aggregations.top_tags.latest_stock_prices.hits.hits) 
+	$util.qr(
+      $array.add(
+      	$util.toJson({ "stock_value": $entry.get("_source").stockValue })
+      )
+    )
+#end
+
+$array

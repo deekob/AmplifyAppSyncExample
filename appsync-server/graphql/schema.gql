@@ -1,0 +1,34 @@
+type Company {
+	company_id: Int!
+	company_name: String
+	company_description: String
+	stock_name: String
+	stock_value: Float
+	delta: Float
+}
+
+type Mutation {
+	updateCompanyStock(company_id: Int!): Stock
+}
+
+type Query {
+	getCompany(id: Int!): Company
+	listCompanies: [Company]
+	stockHistogram(company_id: Int!, limit: Int!): [Stock]
+}
+
+type Stock {
+	delta: Float!
+	stock_value: Float!
+}
+
+type Subscription {
+	onStockChange: Stock
+		@aws_subscribe(mutations: ["updateCompanyStock"])
+}
+
+schema {
+	query: Query
+	mutation: Mutation
+	subscription: Subscription
+}

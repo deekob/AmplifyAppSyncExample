@@ -1,0 +1,31 @@
+{
+  "name": "dlounge-appsync-infrastructure",
+  "version": "0.1.0",
+  "bin": {
+    "dlounge-appsync-infrastructure": "bin/dlounge-appsync-infrastructure.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "cdk": "cdk"
+  },
+  "devDependencies": {
+    "@types/node": "^8.9.4",
+    "typescript": "^3.1.2",
+    "aws-cdk": "^0.22.0"
+  },
+  "dependencies": {
+    "@aws-cdk/aws-apigateway": "^0.22.0",
+    "@aws-cdk/aws-appsync": "^0.22.0",
+    "@aws-cdk/aws-cognito": "^0.22.0",
+    "@aws-cdk/aws-dynamodb": "^0.22.0",
+    "@aws-cdk/aws-elasticsearch": "^0.22.0",
+    "@aws-cdk/aws-iam": "^0.22.0",
+    "@aws-cdk/aws-lambda": "^0.22.0",
+    "@aws-cdk/aws-lambda-event-sources": "^0.22.0",
+    "@aws-cdk/aws-stepfunctions": "^0.22.0",
+    "@aws-cdk/cdk": "^0.22.0",
+    "@types/dotenv": "^6.1.0",
+    "dotenv": "^6.2.0"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "version":"2017-02-28",
+  "operation":"POST",
+  "path":"/stocks/_search?size=0",
+  "params":{
+    "body": {
+      "aggs": {
+        "top_tags": {
+            "filter": {
+              "term": { "companyId": $context.args.company_id }	
+            },
+            "aggs": {
+              "latest_stock_prices": {
+                "top_hits": {
+                  "sort": [
+                    {
+                      "timestamp": {
+                        "order": "desc"
+                      }
+                    }
+                  ],
+                  "_source": {
+                    "includes": [ "companyId", "stockValue", "delta" ]
+                  },
+                  "size" : $context.args.limit
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
